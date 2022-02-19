@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Task;
+use App\Repositories\TaskRepositoryEloquent;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,7 +16,13 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'TaskRepositoryInterface','TaskRepositoryEloquent',
+            'App\Repositories\TaskRepositoryInterface','App\Repositories\TaskRepositoryEloquent',
+        );
+
+        $this->app->bind(
+            'App\Repositories\TaskRepositoryInterface', function(){
+                return new TaskRepositoryEloquent(new Task());
+            }
         );
 
         

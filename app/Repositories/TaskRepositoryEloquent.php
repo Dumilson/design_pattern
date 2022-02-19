@@ -1,12 +1,12 @@
 <?php 
 namespace App\Repositories;
 
-use App\Models\Task;
+use Illuminate\Database\Eloquent\Model;
 
 class TaskRepositoryEloquent implements TaskRepositoryInterface{
 
     protected $model;
-    public function __construct(Task $model){
+    public function __construct(Model $model){
         $this->model = $model;
     }
     public function getList(){

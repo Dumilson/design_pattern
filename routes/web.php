@@ -15,4 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('home', function(){
+    return view('welcome');
+});
 Route::get('/', [ControllerTask::class, 'getList']);
+Route::post('/', [ControllerTask::class, 'store']);
+Route::put('/', [ControllerTask::class, 'update']);
+Route::delete('/', [ControllerTask::class, 'destroy']);
+Route::get('/{id}', [ControllerTask::class, 'get']);

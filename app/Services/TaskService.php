@@ -10,10 +10,12 @@ class TaskService {
         $this->repo = $repo;
     }
     public function getList(){
-        return $this->getList();
+        return $this->repo->getList();
     }
     public function store(Array $data){
-        $this->repo->store($data);
+        $this->repo->store([
+            'title' => $data['title']
+        ]);
     }
     public function get($id){
         $this->repo->get($id);

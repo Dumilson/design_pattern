@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Services\TaskService;
 use Illuminate\Http\Request;
 
@@ -13,7 +12,7 @@ class ControllerTask extends Controller
         $this->serviceTask = $serviceTask;
     }
     public function getList(){
-        return $this->getList();
+        return $this->serviceTask->getList();
     }
     public function store(Request $request){
         $data = $request->all();
